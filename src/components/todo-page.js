@@ -20,7 +20,7 @@ const todos = [
     isCompleted: true
 }
 ]
-class App extends React.Component {
+class TODOPage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => {
 
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(TODOPage);
