@@ -26,6 +26,7 @@ class TODOPage extends React.Component {
         super(props);
 
         this.props.setTSList(todos);
+        
     }
 
     CreateTodo(task) {

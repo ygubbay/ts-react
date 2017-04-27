@@ -2,10 +2,35 @@ import axios from "axios";
 
 const api_root = "http://localhost:9000/api/";
 
-function projectsGetAll() {
+function projectsGetAll(customerid) {
 
-    return axios.get(api_root + 'projects');    
+    return axios.get(api_root + 'projects/' + customerid);    
+}
+
+function projectsGetActive(customerid) {
+
+    return axios.get(api_root + 'projects/active/' + customerid);    
 }
 
 
-export { projectsGetAll };
+function todosGetByDay(yyyyMMdd) {
+    //http://localhost:9000/api/todos/day/20110404
+    return axios.get(api_root + 'todos/day/' + yyyyMMdd);
+}
+
+function todoSave(todo) {
+
+    return axios.post(api_root + 'todos', todo);
+}
+
+function todoDelete(tsentryid) {
+
+    return axios.delete(api_root + 'todos/' + tsentryid);
+}
+
+
+export { projectsGetAll, 
+        projectsGetActive, 
+        todosGetByDay,
+        todoSave,
+        todoDelete };
