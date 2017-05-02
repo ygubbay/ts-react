@@ -13,14 +13,20 @@ export default class Header extends React.Component {
     
     render() {
         return (
-            
-            <header style={{ 'background': 'lightgreen',                        
-                            'padding': '5px',
-                            'textAlign': 'center',
-                            'fontSize': '1.3em',
-                            'fontFamily': 'cursive' }}>
-                Timesheeter
-            </header>
+            <div>
+                <header style={{ 'background': 'lightgreen',                        
+                                'padding': '5px',
+                                'textAlign': 'center',
+                                'fontSize': '1.3em',
+                                'fontFamily': 'cursive' }}>
+                    Timesheeter
+                </header>
+                <div>
+                    <button>Todo</button>
+                    <button>Create Invoice</button> 
+                    <button>View Invoices</button>
+                </div>
+            </div>
         );
     }
 }

@@ -55,7 +55,7 @@ export default class TodoTable extends React.Component {
             var todo = this.props.todos[i];
             var row = (<div key={todo.tsentryid} className="row-todo" onDoubleClick={this.onTodoDoubleClick.bind(this, todo)}> 
                             <div className="tbl-col col-todo-1" style={project_col_display}>
-                                {todo.projects[0].name}
+                                {todo.projects.length > 0 ? todo.projects[0].name: ''}
                             </div>
                             <div className="tbl-col col-todo-2">
                                 {todo.description}
