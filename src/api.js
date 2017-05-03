@@ -12,6 +12,12 @@ function projectsGetActive(customerid) {
     return axios.get(api_root + 'projects/active/' + customerid);    
 }
 
+function getProjectTodosInMonth(userid, yyyyMM) {
+
+    //http://localhost:9000/api/projects/todos/monthly/201701
+    return axios.get(api_root + 'projects/todos/monthly/' + userid + '/' + yyyyMM);
+}
+
 
 function todosGetByDay(yyyyMMdd) {
     //http://localhost:9000/api/todos/day/20110404
@@ -23,6 +29,17 @@ function todosGetDailyStats(yyyyMMdd) {
     return axios.get(api_root + 'todos/day/stats/' + yyyyMMdd);
 
 }
+function todosProjectMonthly(projectid, yyyyMM) {
+    //http://localhost:9000/api/todos/monthly/45/201701
+    return axios.get(api_root + 'todos/monthly/' + projectid + '/' + yyyyMM);
+}
+
+function todosMonthly(yyyyMM) {
+    //http://localhost:9000/api/todos/monthly/201701
+    return axios.get(api_root + 'todos/monthly/' + yyyyMM);
+}
+
+
 function todoSave(todo) {
 
     return axios.post(api_root + 'todos', todo);
@@ -36,7 +53,10 @@ function todoDelete(tsentryid) {
 
 export { projectsGetAll, 
         projectsGetActive, 
+        getProjectTodosInMonth,
         todosGetByDay,
         todosGetDailyStats,
         todoSave,
-        todoDelete };
+        todoDelete,
+        todosProjectMonthly,
+        todosMonthly };

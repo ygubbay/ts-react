@@ -10,6 +10,7 @@ var server = new WebpackDevServer(compiler, {
 	publicPath: config.output.publicPath,
 	stats: {
 		colors: true
-	}
+	},
+	historyApiFallback: true
 });
 server.listen(3001, 'localhost', function() {});
