@@ -45,6 +45,24 @@ function todoSave(todo) {
     return axios.post(api_root + 'todos', todo);
 }
 
+function invoiceSave(invoiceid, 
+                        projectid,
+                        invoice_date,
+                        invoice_year,
+                        invoice_month
+                        ) {
+
+            const save_invoice = {
+                invoiceid,
+                projectid,
+                invoice_date,
+                invoice_year,
+                invoice_month
+            }
+
+    return axios.post(api_root + 'invoices', save_invoice);
+}
+
 function todoDelete(tsentryid) {
 
     return axios.delete(api_root + 'todos/' + tsentryid);
@@ -59,4 +77,5 @@ export { projectsGetAll,
         todoSave,
         todoDelete,
         todosProjectMonthly,
-        todosMonthly };
+        todosMonthly,
+        invoiceSave };

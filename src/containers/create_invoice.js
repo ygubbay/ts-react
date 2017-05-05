@@ -112,7 +112,7 @@ export default class CreateInvoice extends React.Component {
                 console.log(err);
             });
         }
-    
+        
         
     }
 
@@ -199,6 +199,22 @@ export default class CreateInvoice extends React.Component {
     handleCreateClick(event) {
 
         alert('create invoice now');
+
+        api.invoiceSave(0,
+                        this.state.projectid,
+                        this.state.selectedDay,
+                        this.state.invoice_year,
+                        this.state.invoice_month)
+        .then((response) => {
+
+            
+            alert(response);
+            alert('Need to get the new invoiceid and navigate to ViewInvoice (invoiceid)');
+            // Need to get the new invoiceid and 
+            // navigate to ViewInvoice (invoiceid)
+        }).catch((err) => {
+            alert(err);
+        })
     }
 
 
