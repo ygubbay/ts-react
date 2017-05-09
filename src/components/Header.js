@@ -1,7 +1,7 @@
 
 import _ from 'lodash';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -23,9 +23,9 @@ export default class Header extends React.Component {
                     Timesheeter
                 </header>
                 <div>
-                    <Link to="/"><button>Todo</button></Link>
-                    <Link to="/invoice"><button>Create Invoice</button></Link> 
-                    <Link to="/invoices/view">View Invoices</Link>
+                    <NavLink to="/" activeClassName="active" ><button>Todo</button></NavLink>
+                    <NavLink to="/invoice" activeClassName="active"><button>Create Invoice</button></NavLink> 
+                    <NavLink to="/invoices-view" activeClassName="active"><button>View Invoices</button></NavLink>
                 </div>
             </div>
         );

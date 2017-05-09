@@ -49,19 +49,46 @@ function invoiceSave(invoiceid,
                         projectid,
                         invoice_date,
                         invoice_year,
-                        invoice_month
+                        invoice_month,
+                        todos
                         ) {
 
             const save_invoice = {
-                invoiceid,
-                projectid,
-                invoice_date,
-                invoice_year,
-                invoice_month
+                header: {
+                    invoiceid,
+                    projectid,
+                    invoice_date,
+                    invoice_year,
+                    invoice_month
+                },
+                todos: todos
             }
 
     return axios.post(api_root + 'invoices', save_invoice);
 }
+
+
+function invoiceTodosSave(invoiceid, todos) {
+
+    return axios.post(api_root + 'invoiceentries', todos);
+}
+
+
+function invoiceGetHeader(invoiceid) {
+
+    return axios.get(api_root + 'invoices/' + invoiceid + '/header');
+}
+
+function invoiceGetTodos(invoiceid) {
+
+    return axios.get(api_root + 'invoices/' + invoiceid + '/todos');
+}
+
+function invoicesGetPaged(pageindex, pagesize) {
+
+    return axios.get( api_root + 'invoices/' + pageindex + '/' + pagesize );
+}
+
 
 function todoDelete(tsentryid) {
 
@@ -78,4 +105,7 @@ export { projectsGetAll,
         todoDelete,
         todosProjectMonthly,
         todosMonthly,
-        invoiceSave };
+        invoiceSave,
+        invoiceGetHeader,
+        invoiceGetTodos,
+        invoicesGetPaged };

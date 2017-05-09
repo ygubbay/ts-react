@@ -8,6 +8,8 @@ import {
 import Header from '../components/Header';
 import TodoPage from './todo-page';
 import CreateInvoice from './create_invoice';
+import ViewInvoicesPage from './view-invoices-page';
+import ViewInvoice from '../components/invoice-view';
 
 
 
@@ -23,7 +25,9 @@ export default class App extends React.Component {
                 <Header />
 
                 <Route exact path="/" component={TodoPage} />
-                <Route path="/invoice" component={CreateInvoice} />
+                <Route exact path="/invoice" component={CreateInvoice} />
+                <Route path="/invoices-view" component={ViewInvoicesPage} />
+                
             </div>
                </Router>
         );

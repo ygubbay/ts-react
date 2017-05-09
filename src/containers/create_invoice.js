@@ -204,7 +204,8 @@ export default class CreateInvoice extends React.Component {
                         this.state.projectid,
                         this.state.selectedDay,
                         this.state.invoice_year,
-                        this.state.invoice_month)
+                        this.state.invoice_month,
+                        this.state.todos)
         .then((response) => {
 
             
