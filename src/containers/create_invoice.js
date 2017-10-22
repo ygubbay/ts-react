@@ -1,6 +1,7 @@
 
 import _ from 'lodash';
 import React from 'react';
+import InvoiceView from '../components/invoice-view';
 
 import { setTSList, newTS, removeTS } from '../actions/tsActions';
 import Header from '../components/Header';
@@ -20,6 +21,8 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import { Navbar, Button } from 'react-bootstrap';
 
+       
+
 
 export default class CreateInvoice extends React.Component {
   constructor(props) {
@@ -36,7 +39,9 @@ export default class CreateInvoice extends React.Component {
             project_options: [],
             projectid: 0,
             customer_id: 1,
-            userid: 1
+            userid: 1,
+            view_invoice: false,
+            view_invoice_id: null
         }
     }
 
@@ -198,8 +203,6 @@ export default class CreateInvoice extends React.Component {
 
     handleCreateClick(event) {
 
-        alert('create invoice now');
-
         api.invoiceSave(0,
                         this.state.projectid,
                         this.state.selectedDay,
@@ -208,18 +211,35 @@ export default class CreateInvoice extends React.Component {
                         this.state.todos)
         .then((response) => {
 
+            if (response.status == 200) {
+                this.setState({ view_invoice: true, view_invoice_id: response.data.invoiceid }) 
+                return;
+            }
+            else {
+                
+                alert(JSON.stringify(response));
+            }
             
-            alert(response);
-            alert('Need to get the new invoiceid and navigate to ViewInvoice (invoiceid)');
-            // Need to get the new invoiceid and 
-            // navigate to ViewInvoice (invoiceid)
         }).catch((err) => {
             alert(err);
         })
     }
 
 
+    backToViewInvoicesClick() {
+        this.setState({ view_invoice: false, view_invoice_id: null });
+    }
+
+
     render() {
+
+        if (this.state.view_invoice) 
+        {
+            return (
+                <InvoiceView invoiceid={this.state.view_invoice_id} 
+                             onBackClick={ () => this.backToViewInvoicesClick() } />
+            )
+        }
 
          const day_picker = this.state.datePickerOpen ? (
         

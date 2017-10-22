@@ -63,6 +63,10 @@ export default class ViewInvoice extends React.Component {
         this.props.onBackClick();
     }
 
+    printClick() {
+        alert('print the invoice');
+    }
+
   
     render() {
 
@@ -73,7 +77,9 @@ export default class ViewInvoice extends React.Component {
                     <h2 style={{ float: 'left'}}>{this.state.header.invoiceid ? 'Invoice - ' + this.state.header.invoiceid: ''}</h2>
 
                     <div style={{ float: 'right', textAlign: 'right', marginRight: '20px' }}>
+                        <button className="btn btn-primary" onClick={this.printClick.bind(this)}>Print</button>
                         <button className="btn btn-danger" onClick={this.backClick.bind(this)}>Back</button>
+                        
                     </div>
                     <div style={{clear: 'both'}}></div>
                 </div>

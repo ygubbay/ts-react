@@ -44,7 +44,7 @@ export default class InvoiceHeader extends React.Component {
                     </div>
                     <div>
                         <label>Tax</label>
-                        <input type="text" value={this.props.header.amounttotal - this.props.header.amount} />
+                        <input type="text" value={this.props.header.taxtotal} />
                     </div>
                     <div>
                         <label>Amount (incl Tax)</label>
