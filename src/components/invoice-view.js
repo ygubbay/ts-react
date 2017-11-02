@@ -65,6 +65,93 @@ export default class ViewInvoice extends React.Component {
 
     printClick() {
         alert('print the invoice');
+            const print_inv = {
+                    from_company: {
+                        name: 'Nu Solutions',
+                        number: '319210738',
+                        is_company: false,
+                        phone_number: '093338888',
+                        fax_number: '093338888',
+                        email: 'ygubbay@gmail.com',
+                        website: 'www.nusolutions.com.au'
+                    },
+                    to: {
+                        name: 'BookForMe',
+                        person_name: 'Ronnie Heyman'
+                    },
+                    logo_file: 'images/image.png',
+                    invoice_number: '10174',
+                    todos: [ { invoicedate: new Date(),
+                                description: 'Kickoff meeting', 
+                                duration: '02:00', 
+                                amount: 360 },
+                            { invoicedate: new Date(),
+                                description: 'Setup windows service, sql db', 
+                                duration: '03:30', 
+                                amount: 630 },
+                            { invoicedate: new Date(),
+                                description: 'Node ftp client', 
+                                duration: '01:15', 
+                                amount: 225 },
+                            { invoicedate: new Date(),
+                                description: 'Server data transfer', 
+                                duration: '03:30', 
+                                amount: 630 },
+                            { invoicedate: new Date(),
+                                description: 'Server-server comm + db import', 
+                                duration: '08:30', 
+                                amount: 1530 },
+                            { invoicedate: new Date(),
+                                description: 'Cleanup data import', 
+                                duration: '03:00', 
+                                amount: 540 },
+                            { invoicedate: new Date(),
+                                description: 'Test incoming files', 
+                                duration: '00:20', 
+                                amount: 60 },
+                            { invoicedate: new Date(),
+                                description: 'server - add infra', 
+                                duration: '00:45', 
+                                amount: 135 },
+                            { invoicedate: new Date(),
+                                description: 'Install Klika Orders server app on Book4Me server', 
+                                duration: '00:50', 
+                                amount: 150 },
+                            { invoicedate: new Date(),
+                                description: 'service test', 
+                                duration: '00:30', 
+                                amount: 90 },
+                            { invoicedate: new Date(),
+                                description: 'Admin, email pdf infra', 
+                                duration: '05:00', 
+                                amount: 900 },
+                            { invoicedate: new Date(),
+                                description: 'code backup', 
+                                duration: '00:15', 
+                                amount: 45 },
+                            { invoicedate: new Date(),
+                                description: 'Pdf to png conversion.  More import', 
+                                duration: '02:35', 
+                                amount: 465 },
+                            { invoicedate: new Date(),
+                                description: 'Single pdf Order', 
+                                duration: '11:45', 
+                                amount: 2115 }
+                                ],
+                    total: {
+                        net: 7875,
+                        tax: 1338.75,
+                        grand: 9213.75
+                    }
+
+                }
+            api.invoicePdf(print_inv).then((response) => {
+
+                alert('printed');
+            }).catch((err) => {
+
+                alert(err);
+            })
     }
 
   

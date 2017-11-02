@@ -74,6 +74,12 @@ function invoiceTodosSave(invoiceid, todos) {
 }
 
 
+function invoicePdf(pdf_inv) {
+
+    return axios.post(api_root + 'invoices/pdf', pdf_inv);
+}
+
+
 function invoiceGetHeader(invoiceid) {
 
     return axios.get(api_root + 'invoices/' + invoiceid + '/header');
@@ -106,6 +112,7 @@ export { projectsGetAll,
         todosProjectMonthly,
         todosMonthly,
         invoiceSave,
+        invoicePdf,
         invoiceGetHeader,
         invoiceGetTodos,
         invoicesGetPaged };
