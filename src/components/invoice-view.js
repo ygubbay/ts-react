@@ -91,7 +91,7 @@ export default class ViewInvoice extends React.Component {
                         person_name: 'Ronnie Heyman'
                     },
                     logo_file: 'images/image.png',
-                    invoice_number: '10194',
+                    invoice_number: '10201',
                     todos: this.state.todos,
                     total: {
                         net: net_amount,
